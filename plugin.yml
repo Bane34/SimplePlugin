@@ -2,5 +2,5 @@ main: bane34.main.SimplePlugin
 version: 1.0.1
 name: SimplePlugin
 commands:
-   MainCommand:
-      description: main command of the plugin
+  simpleplugin:
+    description: main command of the plugin
