@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class CreaturesSpawn implements Listener {
 	
@@ -16,7 +18,9 @@ public class CreaturesSpawn implements Listener {
 	public void creatureSpawn(CreatureSpawnEvent event) {
 		if(event.getEntityType() == EntityType.CREEPER) {
 			Creeper creeper = (Creeper) event.getEntity();
+			
 			creeper.setPowered(true);
+			creeper.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 99999, 2));
 		}
 		
 		if(event.getEntityType() == EntityType.ZOMBIE) {
@@ -28,7 +32,8 @@ public class CreaturesSpawn implements Listener {
 			
 			ItemStack sharpnessSword = new ItemStack(Material.DIAMOND_SWORD);
 			sharpnessSword.addEnchantment(Enchantment.DAMAGE_ALL, 5);
+			zombie.getEquipment().setItemInMainHand(sharpnessSword);
 		}
 	}
-
+	
 }
