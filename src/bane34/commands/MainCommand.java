@@ -28,6 +28,10 @@ public class MainCommand implements CommandExecutor{
 					player.sendMessage(plugin.name + " is on version: " + plugin.version);
 					return true;
 				}
+				else {
+					player.sendMessage("Wrong argument");
+					return false;
+				}
 			}
 			else {
 				player.sendMessage("A pechi le gusta oliveira");
