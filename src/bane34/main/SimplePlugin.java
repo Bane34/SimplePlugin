@@ -6,7 +6,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import bane34.commands.MainCommand;
+import bane34.events.CreaturesSpawn;
 import bane34.events.EnteringWorld;
+import bane34.events.ThrowingThings;
 
 public class SimplePlugin extends JavaPlugin{
 	PluginDescriptionFile pdffile = getDescription();
@@ -17,7 +19,7 @@ public class SimplePlugin extends JavaPlugin{
 	public void onEnable() {
 		Bukkit.getConsoleSender().sendMessage(name + " inizializated");
 		registerCommand();
-		registerEvents();
+		registerEvent();
 	}
 	
 	public void onDisable() {
@@ -28,8 +30,11 @@ public class SimplePlugin extends JavaPlugin{
 		this.getCommand("simpleplugin").setExecutor(new MainCommand(this));
 	}
 	
-	public void registerEvents() {
+	public void registerEvent() {
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new EnteringWorld(), this);
+		pm.registerEvents(new ThrowingThings(), this);
+		pm.registerEvents(new CreaturesSpawn(), this);
 	}
+	
 }
