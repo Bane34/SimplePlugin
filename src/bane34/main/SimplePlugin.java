@@ -1,5 +1,7 @@
 package bane34.main;
 
+import java.io.File;
+
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
@@ -11,6 +13,8 @@ import bane34.events.EnteringWorld;
 import bane34.events.ThrowingThings;
 
 public class SimplePlugin extends JavaPlugin{
+	public String configPath;
+	
 	PluginDescriptionFile pdffile = getDescription();
 	public String version = pdffile.getVersion();
 	public String name = "[" + pdffile.getName() + "]";
@@ -18,8 +22,10 @@ public class SimplePlugin extends JavaPlugin{
 	
 	public void onEnable() {
 		Bukkit.getConsoleSender().sendMessage(name + " inizializated");
+		
 		registerCommand();
 		registerEvent();
+		registerConfig();
 	}
 	
 	public void onDisable() {
@@ -32,9 +38,19 @@ public class SimplePlugin extends JavaPlugin{
 	
 	public void registerEvent() {
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvents(new EnteringWorld(), this);
+		pm.registerEvents(new EnteringWorld(this), this);
 		pm.registerEvents(new ThrowingThings(), this);
 		pm.registerEvents(new CreaturesSpawn(), this);
+	}
+	
+	public void registerConfig() {
+		File config = new File(this.getDataFolder(),"config.yml");
+		configPath = config.getPath();
+		
+		if(!config.exists()) {
+			this.getConfig().options().copyDefaults(true);
+			saveConfig();
+		}
 	}
 	
 }
