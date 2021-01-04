@@ -1,5 +1,6 @@
 package bane34.events;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,7 +29,7 @@ public class EnteringWorld implements Listener {
 		
 		if(config.getString(path).equals("true")) {
 			String text = "Config.welcome-message-text";
-			player.sendMessage(config.getString(text));
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString(text)).replaceAll("%player%", player.getName()));
 		}
 				
 		world.strikeLightningEffect(location);

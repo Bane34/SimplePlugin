@@ -17,7 +17,7 @@ public class ChickenDead implements Listener {
 			World world = chicken.getWorld();
 			Location location = chicken.getLocation();
 						
-			world.strikeLightning(location);
+			world.createExplosion(location, 6f);
 			return;
 		}
 		
