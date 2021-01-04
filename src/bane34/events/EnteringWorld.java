@@ -26,13 +26,11 @@ public class EnteringWorld implements Listener {
 		FileConfiguration config = plugin.getConfig();
 		String path = "Config.welcome-message";
 		
-		
 		if(config.getString(path).equals("true")) {
 			String text = "Config.welcome-message-text";
 			player.sendMessage(config.getString(text));
 		}
 				
 		world.strikeLightningEffect(location);
-		
 	}
 }
