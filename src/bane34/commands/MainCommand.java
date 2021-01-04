@@ -28,6 +28,12 @@ public class MainCommand implements CommandExecutor{
 					player.sendMessage(plugin.name + " is on version: " + plugin.version);
 					return true;
 				}
+				else if(args[0].equalsIgnoreCase("reload")) {
+					plugin.reloadConfig();
+					player.sendMessage(plugin.name + " has been reloaded succesfully");
+					
+					return true;
+				}
 				else {
 					player.sendMessage("Wrong argument");
 					return false;
