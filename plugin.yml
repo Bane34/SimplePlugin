@@ -5,3 +5,5 @@ name: SimplePlugin
 commands:
   simpleplugin:
     description: main command of the plugin
+  strikelightning:
+    description: strikes a lightning in a player

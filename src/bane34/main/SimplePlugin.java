@@ -8,6 +8,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import bane34.commands.MainCommand;
+import bane34.commands.StrikeLightning;
 import bane34.events.ChickenDead;
 import bane34.events.CreaturesSpawn;
 import bane34.events.EnteringWorld;
@@ -35,6 +36,7 @@ public class SimplePlugin extends JavaPlugin{
 	
 	public void registerCommand() {
 		this.getCommand("simpleplugin").setExecutor(new MainCommand(this));
+		this.getCommand("strikelightning").setExecutor(new StrikeLightning(this));
 	}
 	
 	public void registerEvent() {
