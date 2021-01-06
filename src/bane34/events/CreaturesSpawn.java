@@ -22,8 +22,7 @@ public class CreaturesSpawn implements Listener {
 			creeper.setPowered(true);
 			creeper.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 99999, 2));
 		}
-		
-		if(event.getEntityType() == EntityType.ZOMBIE) {
+		else if(event.getEntityType() == EntityType.ZOMBIE) {
 			Zombie zombie = (Zombie) event.getEntity();
 			zombie.getEquipment().setHelmet(new ItemStack(Material.DIAMOND_HELMET));
 			zombie.getEquipment().setLeggings(new ItemStack(Material.DIAMOND_LEGGINGS));
