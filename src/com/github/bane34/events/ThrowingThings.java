@@ -1,4 +1,4 @@
-package bane34.events;
+package com.github.bane34.events;
 
 import org.bukkit.Location;
 import org.bukkit.World;

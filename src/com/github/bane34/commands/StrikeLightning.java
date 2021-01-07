@@ -1,4 +1,4 @@
-package bane34.commands;
+package com.github.bane34.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -8,7 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import bane34.main.SimplePlugin;
+import com.github.bane34.main.SimplePlugin;
 
 public class StrikeLightning implements CommandExecutor {
 	private SimplePlugin plugin;

@@ -1,4 +1,4 @@
-package bane34.events;
+package com.github.bane34.events;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

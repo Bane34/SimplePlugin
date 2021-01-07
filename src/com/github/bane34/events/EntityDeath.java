@@ -1,4 +1,4 @@
-package bane34.events;
+package com.github.bane34.events;
 
 import java.util.ArrayList;
 import java.util.List;
