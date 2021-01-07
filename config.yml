@@ -1,3 +1,5 @@
 Config:
     welcome-message: true
     welcome-message-text: "Welcome to the server &a%player%"
+    welcome-title: false
+    welcome-message-title: "Welcome to the server boi"
