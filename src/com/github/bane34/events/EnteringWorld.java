@@ -1,4 +1,4 @@
-package bane34.events;
+package com.github.bane34.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -9,7 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import bane34.main.SimplePlugin;
+import com.github.bane34.main.SimplePlugin;
 
 public class EnteringWorld implements Listener {
 	private SimplePlugin plugin;
@@ -25,13 +25,19 @@ public class EnteringWorld implements Listener {
 		Location location = player.getLocation();
 		
 		FileConfiguration config = plugin.getConfig();
-		String path = "Config.welcome-message";
+		String text_path = "Config.welcome-message";
+		String title_path = "Config.welcom-message-title";
 		
-		if(config.getString(path).equals("true")) {
+		if(config.getString(text_path).equals("true")) {
 			String text = "Config.welcome-message-text";
 			player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString(text)).replaceAll("%player%", player.getName()));
 		}
-				
+		
+		if(config.getString(title_path).equals("true")) {
+			String text = "Config.welcome-message-title";
+			player.sendTitle(ChatColor.translateAlternateColorCodes('&', config.getString(text).replaceAll("%player%", player.getName())), null, 10, 70, 20);
+		}
+		
 		world.strikeLightningEffect(location);
 	}
 }
